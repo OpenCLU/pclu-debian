@@ -1,0 +1,9 @@
+start_up:
+	stream$primary_output
+	stream$putl
+	int$unparse
+	file_name$create
+	gc_dump
+	gc_read
+	_exit
+

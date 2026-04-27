@@ -1,0 +1,6 @@
+Creating DU specs from /home/dcurtis/pclu-debian/cmp/basic.types
+time = 0.013
+Undefined     Referencing Modules
+______________________________________________________________________
+
+gcd_tab       equates(/home/dcurtis/pclu-debian/cmp/basic.types)

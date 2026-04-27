@@ -1,0 +1,26 @@
+start_up = proc()
+	po: stream := stream$primary_output()
+	stream$putl(po, "Hello World!")
+
+	i: int := 42
+	% stream$putl(po, "42")  % cheating...
+	stream$putl(po, int$unparse(i))  
+	fni: file_name := file_name$create(".", "test-int", "gc", "")
+	gc_dump[int](i, fni)
+	stream$putl(po, "Hello World!")
+	ni: int := gc_read[int](fni)
+	stream$putl(po, int$unparse(ni))  
+	stream$putl(po, "Hello World!")
+
+	stream$putl(po, "Hello World!")
+
+	s: string := "0123456789"
+	stream$putl(po, s)
+	fn: file_name := file_name$create(".", "test-str", "gc", "")
+	stream$putl(po, "Hello World!")
+	gc_dump[string](s, fn)
+	stream$putl(po, "Hello World!")
+	ns: string := gc_read[string](fn)
+	stream$putl(po, ns)
+	_exit(0)
+end start_up

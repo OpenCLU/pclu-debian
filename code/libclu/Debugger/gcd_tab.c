@@ -1,0 +1,1 @@
+../Opt/gcd_tab.c

@@ -1,0 +1,504 @@
+gc_read:
+	gcb$init
+	gco$init
+	_chan$open
+	_bytevec$create
+	_cvt
+	_chan$getb
+	bool$not
+	char$equal
+	_bytevec$fetch
+	int$equal
+	_wordvec$fetch
+	gcr$pass1
+	_chan$close
+	gcr$pass2
+	gco$get_obj
+	gco$reset
+
+gcr$own_init_proc:
+	gcb$get_next_hdr
+	int$equal
+	gcr$make_bvec1
+	gcr$make_vec1
+	gcr$make_cell1
+	gcr$make_adv1
+	gco$save_new_obj
+	gcb$get_size
+	_bytevec$create
+	gcb$getb
+	int$from_to
+	_cvt
+	_vec$create
+	gcb$skip_obj
+	_tagcell$create
+	gcb$geti
+	gcb$get_array_info
+	array$predict
+	gco$get_obj
+	gcr$make_bvec2
+	gcr$make_vec2
+	gcr$make_cell2
+	gcr$make_adv2
+	gcb$skip
+	int$div
+	int$add
+	_vec$store
+	gcb$get_next_obj
+	_tagcell$set
+	int$sub
+	_adv$set_vector
+	_adv$set_start
+	_adv$set_size
+
+gcr$pass1:
+	gcb$get_next_hdr
+	int$equal
+	gcr$make_bvec1
+	gcr$make_vec1
+	gcr$make_cell1
+	gcr$make_adv1
+	gco$save_new_obj
+
+gcr$make_bvec1:
+	gcb$get_size
+	_bytevec$create
+	gcb$getb
+	int$from_to
+	_cvt
+
+gcr$make_vec1:
+	gcb$get_size
+	_vec$create
+	gcb$skip_obj
+	_cvt
+
+gcr$make_cell1:
+	_tagcell$create
+	_cvt
+	gcb$geti
+	gcb$skip_obj
+
+gcr$make_adv1:
+	gcb$get_size
+	gcb$get_array_info
+	array$predict
+	gcb$skip_obj
+	_cvt
+
+gcr$pass2:
+	gcb$get_next_hdr
+	gco$get_obj
+	int$equal
+	gcr$make_bvec2
+	gcr$make_vec2
+	gcr$make_cell2
+	gcr$make_adv2
+
+gcr$make_bvec2:
+	gcb$get_size
+	gcb$skip
+	int$div
+	int$add
+
+gcr$make_vec2:
+	gcb$get_size
+	_cvt
+	int$from_to
+	_vec$store
+	gcb$get_next_obj
+
+gcr$make_cell2:
+	_cvt
+	gcb$geti
+	_tagcell$set
+	gcb$get_next_obj
+
+gcr$make_adv2:
+	int$sub
+	gcb$get_size
+	_cvt
+	gcb$get_array_info
+	gcb$get_next_obj
+	_adv$set_vector
+	_adv$set_start
+	_adv$set_size
+
+gcb$own_init_proc:
+	_wordvec$create
+	_bytevec$create
+	gcb$geti
+	int$equal
+	_cvt
+	gco$get_obj
+	int$from_to
+	bool$not
+	_chan$getw
+	_wordvec$fetch
+	int$sub
+	int$add
+	_bytevec$size
+	int$mul
+	int$div
+	int$lt
+	int$min
+	_wordvec$move_w2b
+
+gcb$init:
+
+gcb$get_next_hdr:
+	gcb$geti
+
+gcb$get_size:
+	gcb$geti
+
+gcb$get_array_info:
+	gcb$geti
+
+gcb$get_next_obj:
+	gcb$geti
+	int$equal
+	_cvt
+	gco$get_obj
+
+gcb$skip_obj:
+	int$equal
+	int$from_to
+	gcb$geti
+	bool$not
+
+gcb$geti:
+	int$equal
+	_chan$getw
+	_wordvec$fetch
+	int$sub
+	int$add
+
+gcb$getb:
+	_bytevec$size
+	int$sub
+	int$mul
+	int$div
+	int$add
+	int$lt
+	int$equal
+	_chan$getw
+	int$min
+	_wordvec$move_w2b
+	bool$not
+
+gcb$skip:
+	int$mul
+	int$lt
+	int$equal
+	_chan$getw
+	int$min
+	int$sub
+	int$add
+	int$div
+
+gco$own_init_proc:
+	_cvt
+	array$fill
+	int$add
+	hash_int
+	array$fetch
+	bool$not
+	_obj$equal
+	int$equal
+	record$get_1
+	record$get_2
+	record$get_3
+	array$store
+	array$new
+
+gco$init:
+	_cvt
+	array$fill
+
+gco$get_obj:
+	int$add
+	hash_int
+	array$fetch
+	bool$not
+	_obj$equal
+	_cvt
+	int$equal
+	record$get_1
+	record$get_2
+	record$get_3
+
+gco$save_new_obj:
+	int$add
+	hash_int
+	array$fetch
+	array$store
+	_cvt
+
+gco$reset:
+	array$new
+
+log_bytevec:
+	logit
+	int$from_to
+	_bytevec$size
+	_bytevec$fetch
+	string$concat
+	int$unparse
+	char$c2i
+	char$le
+	string$c2s
+
+gcd_tab$own_init_proc:
+							_chan$open
+							_chan$get_name
+							_gc$count
+							array$predict
+							_vec$create
+							_wordvec$create
+							_event$defer
+							gcd_tab$mgrind
+							_wordvec$store
+							record$get_4
+							_chan$set_access
+							_chan$putw
+							_event$undefer
+							_chan$abort
+							_chan$close
+							array$new
+							int$add
+							gcd_tab$pgrind
+							record$set_4
+							record$get_3
+							record$get_5
+							array$fetch
+							_cvt
+							sequence$elements
+							sequence$indexes
+							sequence$fetch
+							_tagcell$get
+							_adv$get_vector
+							gcd_tab$insert
+							int$mul
+							_vec$size
+							bool$not
+							_obj$equal
+							gcd_store$init
+							gcd_store$store_id
+							int$lt
+							gcd_store$store_lit
+							gcd_store$store_ref
+							array$reml
+							_bytevec$size
+							gcd_store$store_hdr
+							gcd_store$store_string
+							sequence$size
+							int$from_to
+							gcd_store$store_array_desc
+							gcd_store$done
+							hash_obj
+							_vec$fetch
+							record$get_1
+							record$get_2
+							_vec$store
+							array$addh
+
+gcd_tab$grind:
+							_chan$open
+							_chan$get_name
+							_gc$count
+							array$predict
+							_vec$create
+							_wordvec$create
+							_event$defer
+							gcd_tab$mgrind
+							_wordvec$store
+							record$get_4
+							_chan$set_access
+							_chan$putw
+							_event$undefer
+							_chan$abort
+							_chan$close
+
+gcd_tab$grindc:
+							_chan$set_access
+							_gc$count
+							array$new
+							_vec$create
+							_wordvec$create
+							_event$defer
+							gcd_tab$mgrind
+							_wordvec$store
+							record$get_4
+							int$add
+							_chan$putw
+							_event$undefer
+
+gcd_tab$grindp:
+							_gc$count
+							array$new
+							_vec$create
+							_wordvec$create
+							_event$defer
+							gcd_tab$pgrind
+							_wordvec$store
+							record$get_4
+							record$set_4
+							gcd_tab$mgrind
+							_event$undefer
+
+gcd_tab$pgrind:
+							record$get_3
+							record$get_5
+							int$add
+							array$fetch
+							_cvt
+							sequence$elements
+							sequence$indexes
+							sequence$fetch
+							_tagcell$get
+							_adv$get_vector
+							gcd_tab$insert
+							int$mul
+							_vec$size
+							bool$not
+							_obj$equal
+
+gcd_tab$mgrind:
+							gcd_store$init
+							gcd_store$store_id
+							int$lt
+							gcd_store$store_lit
+							_cvt
+							gcd_store$store_ref
+							record$get_3
+							record$get_5
+							array$reml
+							_bytevec$size
+							gcd_store$store_hdr
+							gcd_store$store_string
+							sequence$size
+							sequence$elements
+							int$from_to
+							sequence$fetch
+							_tagcell$get
+							_adv$get_vector
+							_vec$size
+							gcd_tab$insert
+							int$add
+							int$mul
+							gcd_store$store_array_desc
+							_obj$equal
+							gcd_store$done
+
+gcd_tab$insert:
+							int$add
+							hash_obj
+							_vec$fetch
+							record$get_1
+							bool$not
+							_obj$equal
+							_cvt
+							record$get_3
+							record$get_2
+							record$get_4
+							_vec$store
+							array$addh
+							record$get_5
+							record$set_4
+
+gcd_store$own_init_proc:
+							_bytevec$store
+							_cvt
+							gcd_store$need
+							_wordvec$store
+							int$add
+							_adv$get_size
+							_adv$get_low
+							_adv$get_start
+							_adv$get_predict
+							_bytevec$size
+							int$div
+							int$sub
+							int$min
+							int$mul
+							_wordvec$move_b2w
+							int$equal
+							_chan$putw
+							int$le
+
+gcd_store$init:
+
+gcd_store$store_id:
+							_bytevec$store
+							_cvt
+
+gcd_store$store_lit:
+							gcd_store$need
+							_wordvec$store
+							int$add
+
+gcd_store$store_ref:
+							gcd_store$need
+							_wordvec$store
+							int$add
+
+gcd_store$store_hdr:
+							gcd_store$need
+							_wordvec$store
+							int$add
+
+gcd_store$store_array_desc:
+							gcd_store$need
+							_wordvec$store
+							int$add
+							_adv$get_size
+							_adv$get_low
+							_adv$get_start
+							_adv$get_predict
+
+gcd_store$store_string:
+							_bytevec$size
+							int$add
+							int$div
+							int$sub
+							gcd_store$need
+							int$min
+							int$mul
+							_wordvec$move_b2w
+							int$equal
+
+gcd_store$done:
+							_chan$putw
+							int$mul
+							int$sub
+
+gcd_store$need:
+							int$le
+							int$mul
+							int$sub
+							int$add
+							int$equal
+							_chan$putw
+							int$min
+
+logit:
+							stream$error_output
+							stream$puts
+							string$concat
+
+gc_dump:
+				gcd_tab$grind
+
+start_up:
+						logit
+						file_name$create
+						gc_dump
+						string$concat
+						int$unparse
+						gc_read
+						string$c2s
+						char$c2i
+						array$addh
+						array$elements
+

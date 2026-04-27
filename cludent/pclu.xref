@@ -1,0 +1,625 @@
+_buffered_read:
+	div
+	_chan$get_length
+	int$gt
+	_free_space
+	_gc$gc
+	array$predict
+	int$div
+	_io_buf
+	_chan$get
+	array$addh
+	int$add
+	bool$not
+	array$empty
+	set_predict
+	_cvt
+
+_io_buf:
+	_bytevec$create
+
+buf$own_init_proc:
+	bool$not
+	array$new
+	record$set_1
+	record$set_10
+	record$set_7
+	record$set_8
+	record$set_5
+	record$set_9
+	record$set_4
+	record$set_2
+	record$set_6
+	record$set_3
+	record$get_1
+	record$get_10
+	record$get_7
+	record$get_8
+	record$get_5
+	record$get_9
+	record$get_4
+	record$get_2
+	record$get_6
+	record$get_3
+	buf$flush
+	record$copy1
+	array$copy1
+	array$copy
+	int$lt
+	int$gt
+	array$size
+	int$add
+	string$size
+	array$top
+	array$fetch
+	int$le
+	int$sub
+	int$equal
+	array$bottom
+	char$equal
+	string$fetch
+	string$substr
+	string$rest
+	string$indexc
+	array$store
+	string$concat
+	array$trim
+	int$from_to
+	array$addh
+	array_replace
+	string$empty
+	int$ge
+	buf$create
+	buf$copy
+	array$elements
+	record$equal
+	array$addl
+	array$set_low
+	int$from_to_by
+	_buffered_read
+	array$empty
+
+buf$create:
+	bool$not
+	array$new
+
+buf$flush:
+	record$set_1
+	record$set_10
+	record$set_7
+	record$set_8
+	record$set_5
+	record$set_9
+	record$set_4
+	record$set_2
+	record$set_6
+	record$set_3
+
+buf$replace:
+	record$set_1
+	record$get_1
+	record$set_10
+	record$get_10
+	record$set_7
+	record$get_7
+	record$set_8
+	record$get_8
+	record$set_5
+	record$get_5
+	record$set_9
+	record$get_9
+	record$set_4
+	record$get_4
+	record$set_2
+	record$get_2
+	record$set_6
+	record$get_6
+	record$set_3
+	record$get_3
+	buf$flush
+
+buf$copy:
+	record$copy1
+	record$set_1
+	array$copy1
+	record$get_1
+	record$set_3
+	array$copy
+	record$get_3
+
+buf$get_cursor:
+	record$get_5
+	record$get_9
+
+buf$set_cursor:
+	record$get_1
+	int$lt
+	int$gt
+	array$size
+	int$add
+	string$size
+	array$top
+	array$fetch
+	bool$not
+	record$get_10
+	record$get_5
+	record$get_6
+	record$set_4
+	record$get_4
+	record$set_2
+	record$set_6
+	record$get_3
+	int$le
+	record$get_2
+	int$sub
+	record$set_5
+	record$set_9
+
+buf$get_mark:
+	record$get_7
+	record$get_8
+
+buf$set_mark:
+	record$get_1
+	int$lt
+	int$gt
+	array$size
+	int$add
+	string$size
+	array$top
+	array$fetch
+	record$set_7
+	record$set_8
+
+buf$add_cursor:
+	record$get_1
+	array$size
+	int$add
+	record$get_5
+	int$gt
+	int$lt
+	bool$not
+	int$equal
+	record$get_9
+	string$size
+	array$fetch
+	int$le
+	int$sub
+	array$top
+
+buf$new_cursor:
+	record$get_1
+	array$size
+	record$get_5
+	int$add
+	int$gt
+	int$lt
+	bool$not
+	int$equal
+	record$get_9
+	string$size
+	array$fetch
+	int$le
+	int$sub
+	record$get_10
+	record$get_6
+	record$set_4
+	record$get_4
+	record$set_2
+	record$set_6
+	record$get_3
+	record$get_2
+	record$set_5
+	record$set_9
+	array$top
+	array$bottom
+
+buf$insert:
+	string$size
+	int$equal
+	record$get_1
+	record$get_5
+	record$get_9
+	bool$not
+	record$get_10
+	int$lt
+	int$add
+	record$get_2
+	int$gt
+	char$equal
+	string$fetch
+	array$fetch
+	record$get_3
+	int$sub
+	record$get_4
+	record$set_2
+	record$set_1
+	string$substr
+	string$rest
+	string$indexc
+	array$store
+	string$concat
+	record$get_7
+	record$get_8
+	record$set_8
+	record$set_9
+	array$trim
+	int$from_to
+	array$addh
+	array$bottom
+	array$size
+	record$set_3
+	record$set_6
+	record$get_6
+	record$set_5
+	record$set_7
+	array_replace
+
+buf$can_insert:
+	record$get_10
+	int$gt
+	record$get_5
+	int$add
+	record$get_2
+
+buf$addh:
+	array$top
+	record$get_3
+	record$set_1
+	record$get_1
+	array$size
+	record$get_2
+	array$trim
+	int$sub
+	record$set_3
+	record$set_2
+	string$indexc
+	int$equal
+	array$addh
+	int$add
+	record$get_6
+	record$set_6
+	int$from_to
+	string$size
+	char$equal
+	string$fetch
+	string$substr
+	string$rest
+
+buf$delete:
+	int$gt
+	record$get_6
+	record$get_10
+	int$lt
+	bool$not
+	int$add
+	record$get_2
+	record$get_1
+	array$fetch
+	string$size
+	record$get_5
+	record$get_9
+	record$set_5
+	record$set_9
+	int$equal
+	record$get_3
+	record$get_4
+	array$store
+	string$concat
+	string$substr
+	int$sub
+	string$rest
+	string$empty
+	record$set_2
+	record$set_1
+	record$get_7
+	int$ge
+	record$get_8
+	record$set_8
+	record$set_7
+	array_replace
+	record$set_3
+	record$set_6
+
+buf$del_frame:
+	int$equal
+	record$get_5
+	int$sub
+	buf$create
+	record$get_3
+	record$get_4
+	int$add
+	array$size
+	record$get_2
+	int$lt
+	int$from_to
+	array$fetch
+	int$gt
+	record$get_1
+	buf$copy
+	array$trim
+	array$addh
+	record$set_10
+	record$set_2
+	record$set_6
+	record$set_4
+	record$set_5
+	record$set_9
+	record$set_7
+	record$set_8
+	array$new
+	array_replace
+	record$set_3
+	array$store
+	record$set_1
+	array$bottom
+	string$size
+	array$top
+	record$get_7
+	int$le
+	record$get_9
+
+buf$b2s:
+	record$get_1
+	int$gt
+	array$size
+	array$top
+	int$add
+	string$size
+	int$lt
+	array$fetch
+	record$get_5
+	record$get_9
+	record$set_5
+	record$set_9
+	string$rest
+	string$concat
+	string$substr
+	int$sub
+	int$equal
+	int$ge
+
+buf$fetch:
+	array$fetch
+	record$get_1
+
+buf$store:
+	int$lt
+	int$gt
+	array$size
+	record$get_1
+	record$get_4
+	bool$not
+	record$get_10
+	record$get_2
+	record$get_5
+	record$get_6
+	int$add
+	record$get_3
+	array$fetch
+	int$le
+	int$sub
+	int$equal
+	record$get_9
+	string$size
+	record$set_9
+	array$store
+	string$empty
+	record$set_2
+	record$set_1
+	record$get_7
+	record$get_8
+	record$set_8
+
+buf$get_changed:
+	record$get_1
+	array$fetch
+	record$get_3
+	record$get_4
+
+buf$set_changed:
+	array$fetch
+	record$get_3
+	record$get_4
+	bool$not
+	record$get_2
+	record$set_1
+
+buf$any_changed:
+	array$elements
+	record$get_3
+	record$get_1
+
+buf$empty:
+	record$get_10
+	record$get_2
+	array$bottom
+	record$get_3
+
+buf$equal:
+	record$equal
+
+buf$size:
+	array$size
+	record$get_1
+
+buf$insert_buf:
+	record$get_1
+	array$size
+	record$get_5
+	record$get_9
+	int$equal
+	record$get_2
+	array$bottom
+	record$get_3
+	record$set_1
+	array$copy1
+	record$set_3
+	array$copy
+	record$set_10
+	record$get_10
+	record$set_5
+	record$set_9
+	int$add
+	string$size
+	array$top
+	record$set_6
+	record$set_2
+	int$sub
+	record$get_6
+	record$set_4
+	bool$not
+	int$lt
+	int$gt
+	string$empty
+	int$le
+	array$fetch
+	string$substr
+	string$rest
+	record$get_4
+	array$store
+	string$concat
+	record$get_7
+	record$get_8
+	record$set_8
+	record$set_7
+	array_replace
+	array$elements
+	record$copy1
+
+buf$sub_buf:
+	int$gt
+	record$get_6
+	record$get_10
+	int$lt
+	bool$not
+	int$add
+	record$get_2
+	record$get_1
+	array$fetch
+	string$size
+	record$get_5
+	record$get_9
+	record$set_5
+	record$set_9
+	int$equal
+	int$sub
+	array$new
+	array$addh
+	record$set_2
+	string$substr
+	array_replace
+	array$store
+	string$rest
+	array$bottom
+
+buf$get_name:
+	record$get_4
+	array$fetch
+	record$get_3
+
+buf$set_name:
+	record$get_10
+	string$empty
+	record$set_10
+	record$get_1
+	array$addl
+	string$concat
+	array$set_low
+	record$set_6
+	array$size
+	record$set_5
+	int$add
+	record$get_5
+	record$set_7
+	record$get_7
+	array$bottom
+	record$get_3
+	record$set_4
+	record$set_3
+	record$get_6
+	bool$not
+	array$fetch
+	record$get_4
+	array$store
+	record$get_2
+	int$equal
+	int$gt
+	record$get_9
+	string$size
+	record$set_9
+
+buf$get_frame:
+	record$get_10
+	record$get_6
+	int$add
+	record$get_2
+
+buf$new_frame:
+	record$get_3
+	int$add
+	record$get_4
+	int$gt
+	array$size
+	record$set_4
+	record$set_5
+	record$get_1
+	record$set_9
+	string$size
+	array$top
+	record$set_6
+	record$get_5
+	record$set_2
+	int$sub
+	record$get_6
+	int$lt
+	record$get_10
+	array$bottom
+	int$from_to
+	array$fetch
+	int$from_to_by
+	record$get_2
+
+buf$frame_num:
+	record$get_4
+
+buf$read:
+	_buffered_read
+	array$size
+	array$empty
+	array$addh
+	record$set_3
+	record$set_2
+	record$set_1
+	record$get_3
+
+make_upper_case:
+	int$from_to
+	string$size
+	string$fetch
+	char$ge
+	char$le
+	string$s2ac
+	array$size
+	array$fetch
+	array$store
+	char$i2c
+	int$sub
+	char$c2i
+	string$ac2s
+
+make_lower_case:
+	int$from_to
+	string$size
+	string$fetch
+	char$ge
+	char$le
+	string$s2ac
+	array$size
+	array$fetch
+	array$store
+	char$i2c
+	int$add
+	char$c2i
+	string$ac2s
+

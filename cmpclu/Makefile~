@@ -1,0 +1,22 @@
+#
+# Generate .c files corresponding to .clu files for compiler
+#
+
+# assumes that CLUHOME environment variable is set
+
+# you will want to use "make new" when changing architectures
+#	or on initial installation
+
+PCLU = $(CLUHOME)/exe/pclu
+
+all:
+	$(PCLU) \#xf cmp.xfile \#opt time \#ccopt 0 \#co *.clu ; \
+	cd ../cmp ; make ; cd ../../cmpclu
+
+lib:
+	/bin/rm -f ./cmp.lib ; \
+	$(PCLU) \#xf cmp.xfile \#spec *.spc \#spec *.clu \#spec *.clu \
+		\#dump cmp.lib
+
+clean:
+	/bin/rm -f cmp.lib *.c
