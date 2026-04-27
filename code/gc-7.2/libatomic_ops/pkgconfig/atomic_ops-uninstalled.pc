@@ -1,7 +1,7 @@
 prefix=/usr/local
 exec_prefix=${prefix}
-top_builddir=/home/garland/Documents/pclu/code/gc/libatomic_ops
-top_srcdir=/home/garland/Documents/pclu/code/gc/libatomic_ops
+top_builddir=/home/bradley/pclu-debian-2/pclu-debian/code/gc/libatomic_ops
+top_srcdir=/home/bradley/pclu-debian-2/pclu-debian/code/gc/libatomic_ops
 
 Name: The atomic_ops library (uninstalled)
 Description: Atomic memory update operations

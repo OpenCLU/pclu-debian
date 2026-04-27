@@ -59,7 +59,7 @@ configure:
 
 gc:
 	echo Installing and testing the garbage collector
-	cd code/gc; ./configure make; make gctest; ./gctest
+	cd code/gc; ./configure CFLAGS="-g -O2 -fcommon"; make; make gctest; ./gctest
 
 clu: libpclu compiler clulibs cludent # PCLU debugger
 

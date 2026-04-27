@@ -1,0 +1,7 @@
+*.Plo
+*.a
+*.la
+*.lo
+*.o
+.libs
+gctest
